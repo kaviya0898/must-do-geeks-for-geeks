@@ -1,0 +1,41 @@
+public static void main(String[] args) {
+      int array[]= {11,3,5,2,2,1};
+      System.out.println(result(array));
+		}
+
+	private static int result(int[] array) {
+		int length=0;
+		int temp=0;
+		try
+		{
+			while(true)
+			{
+				temp=array[length];
+				length++;
+			}
+		}
+		catch(Exception e)
+		{
+			
+		}
+		if(length==1)
+		{
+			return 1;
+		}
+		int sum=0,currentSum=0;
+		for(int index=0;index<length;index++)
+		{
+			sum+=array[index];
+		}
+		for(int index=1;index<length;index++)
+		{
+			currentSum+=array[index-1];
+			if(sum-array[index]-currentSum==currentSum)
+			{
+				return index;
+			}
+		}
+		return -1;
+	}
+	
+	}
