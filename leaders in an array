@@ -1,0 +1,24 @@
+public class Practice {
+
+	public static void main(String[] args) {
+		int array[] = { 1,2,3,4,0 };
+		result(array);
+	}
+
+	private static void result(int[] array) {
+		ArrayList<Integer> list = new ArrayList<>();
+		
+		int max = 0;
+		for (int index = array.length - 1; index >= 0; index--) 
+		{
+          if(array[index]>=max)
+          {
+        	  list.add(array[index]);
+        	  max=array[index];
+          }
+		}
+       Collections.reverse(list);
+       System.out.println(list);
+	}
+
+}
