@@ -1,0 +1,19 @@
+public static void main(String[] args) {
+		int array[] = { 1,2,3,-2,5};
+		int meh=0,msf=Integer.MIN_VALUE;
+		for(int index=0;index<array.length;index++)
+		{
+			meh+=array[index];
+			if(meh<array[index])
+			{
+				meh=array[index];
+			}
+			if(msf<meh)
+			{
+				msf=meh;
+			}
+		}
+		System.out.println(msf);
+	}
+
+}
