@@ -1,0 +1,27 @@
+public static void main(String[] args) {
+		int array[] = { 1,25,3,7,59 };
+		int k=12;
+		int sum=0;
+		int count=0;
+		int start=0;
+		for(int index=0;index<array.length;index++)
+		{
+			sum+=array[index];
+			while(sum>k)
+			{
+				sum-=array[start];
+				start++;
+			}
+			if(sum==k)
+			{
+				count++;
+				System.out.println(start+"-"+index);
+			}
+		}
+		if(count==0)
+		{
+			System.out.println(count);
+		}
+	}
+
+}
