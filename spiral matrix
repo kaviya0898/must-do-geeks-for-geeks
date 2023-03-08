@@ -1,0 +1,33 @@
+public static void main(String[] args) {
+		int matrix[][] = { { 1, 2, 3, 4 }, { 5, 6, 7, 8 }, { 9, 10, 11, 12 }, { 13, 14, 15, 16 } };
+		
+		int rowStart = 0, columnStart = 0, rowEnd = matrix.length, columnEnd = matrix.length;
+		
+		while (rowStart < rowEnd && columnStart < columnEnd)
+		{
+			for (int index = columnStart; index < columnEnd; index++)
+			{
+               System.out.println(matrix[rowStart][index]);
+			}
+			rowStart++;
+			
+			for(int index=rowStart;index<rowEnd;index++)
+			{
+				System.out.println(matrix[index][columnEnd-1]);
+			}
+			columnEnd--;
+			for(int index=columnEnd-1;index>=columnStart;index--)
+			{
+				System.out.println(matrix[rowEnd-1][index]);
+			}
+			rowEnd--;
+			for(int index=rowEnd-1;index>=rowStart;index--)
+			{
+				System.out.println(matrix[index][columnStart]);
+			}
+			columnStart++;
+		}
+
+	}
+
+}
