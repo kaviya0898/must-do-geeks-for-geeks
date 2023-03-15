@@ -1,0 +1,43 @@
+public class Practice {
+	
+	public static void main(String[] args) 
+	{
+		String[]array= {"Hi","Hello","HelloWorld",
+				"HiTech","HiGeek","HiTechWorld",
+				"HiTechCity","HiTechLab"};
+		String pattern="HA";
+		
+		for(int index=0;index<array.length;index++)
+		{
+			if(patternCheck(array[index],pattern))
+			{
+				System.out.println(array[index]);
+			}
+		}
+		
+		
+		
+		
+	}
+
+	private static boolean patternCheck(String str,String pattern) {
+		int index=0;
+		int count=0;
+		for(int i=0;i<str.length();i++)
+		{
+			if( index<pattern.length() && str.charAt(i)==pattern.charAt(index))
+			{
+				index++;
+				count++;
+			}
+		}
+		if(count==pattern.length())
+		{
+		return true;
+		}
+		
+		return false;
+	}
+	
+
+}
