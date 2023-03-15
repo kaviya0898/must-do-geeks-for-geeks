@@ -1,0 +1,38 @@
+public static void main(String[] args) {
+		String str="iii.am.well";
+		int length=0;
+		char temp;
+		try
+		{
+			while(true)
+			{
+				temp=str.charAt(length);
+				length++;
+				
+			}
+			
+		}
+		catch(Exception e)
+		{
+			
+		}
+		System.out.println(length);
+		String answer="";
+		String flag="";
+		for(int index=length-1;index>=0;index--)
+		{
+			if(str.charAt(index)!='.')
+			{
+				flag=str.charAt(index)+flag;
+			}
+			else
+			{
+				answer=answer+flag+str.charAt(index);
+				flag="";
+			}
+		}
+		answer+=flag;
+		System.out.println(answer);
+	}
+
+}
