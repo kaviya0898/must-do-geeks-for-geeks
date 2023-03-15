@@ -1,0 +1,13 @@
+String[]array= {"geeks","for","geeks","for"};
+		HashMap<String,Integer> map=new HashMap<>();
+		for(String words:array)
+		{
+			map.put(words,map.getOrDefault(words,0)+1);
+		}
+		for(Map.Entry<String,Integer> entry:map.entrySet())
+		{
+			if(entry.getValue()==2)
+			{
+				System.out.println(entry.getKey());
+			}
+		}
