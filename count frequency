@@ -1,0 +1,33 @@
+public class Question1 {
+
+	public static void main(String[] args) {
+		int array[]= {2, 3, 2, 6, 1, 6, 2,3,7,11,11,1};
+		countOccurrences(array);
+		
+		
+	
+	}
+	public static void countOccurrences(int[] arr) {
+	   int min=0;
+	   for(int num:arr)
+	   {
+		   if(num>min)
+		   {
+			   min=num;
+		   }
+	   }
+	   System.out.println(min);
+	   int freqArray[]=new int[min+1];
+	   for(int num:arr)
+	   {
+		   freqArray[num]++;
+	   }
+	   for(int index=0;index<freqArray.length;index++)
+	   {
+		   if(freqArray[index]>0)
+		   {
+			   System.out.println(index+"-"+freqArray[index]);
+		   }
+	   }
+	}
+	}
