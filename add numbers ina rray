@@ -1,0 +1,80 @@
+public class Practice {
+
+	public static void main(String[] args) {
+		Scanner scanner=new Scanner(System.in);
+		System.out.println("number of digits first number");
+		int length1=scanner.nextInt();
+		System.out.println("number of digits second number");
+		int length2=scanner.nextInt();
+		
+		int array1[]=new int[length1];
+		int array2[]=new int[length2];
+		System.out.println("enter the first number:");
+		for(int index=0;index<length1;index++)
+		{
+			array1[index]=scanner.nextInt();
+		}
+		System.out.println("Enter the second number:");
+		for(int index=0;index<length2;index++)
+		{
+			array2[index]=scanner.nextInt();
+		}
+		
+		if(length1<length2)
+		{
+			array1=padWithZeros(length2-length1,array1);
+		}
+		else
+		{
+			array2=padWithZeros(length1-length2,array2);
+		}
+//		for(int index=0;index<array1.length;index++)
+//		{
+//			System.out.print(array1[index]+" ");
+//		}
+//		for(int index=0;index<array2.length;index++)
+//		{
+//			System.out.print(array2[index]+" ");
+//		}
+		
+		calculateSum(array1,array2);
+		
+	}
+
+	private static void calculateSum(int[] array1, int[] array2) {
+		int sumArray[]=new int[array1.length];
+		int carry=0;
+		for(int index=array1.length-1;index>=0;index--)
+		{
+			int sum=array1[index]+array2[index]+carry;
+			
+			sumArray[index]=sum%10;
+			carry=sum/10;
+		}
+		for(int index=0;index<sumArray.length;index++)
+		{
+			System.out.print(sumArray[index]+" ");
+		}
+		
+	}
+
+	private static int[] padWithZeros(int space, int[] array) {
+		int paddedArray[]=new int[space+array.length];
+		for(int index=0;index<space;index++)
+		{
+			paddedArray[index]=0;
+		}
+		for(int index=space;index<paddedArray.length;index++)
+		{
+			paddedArray[index]=array[index-space];
+		}
+		return paddedArray;
+		
+	}
+
+	
+	
+		
+	}
+
+
