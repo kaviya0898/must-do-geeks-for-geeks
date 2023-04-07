@@ -1,20 +1,36 @@
-String digits[]= {"","one","two","three","four","five","six","seven","eight","nine"};
+package patterns;
+
+import java.util.HashSet;
+import java.util.Random;
+import java.util.Stack;
+
+public class Practices {
+
+	public static void main(String[] args) {
+		String digits[]= {"","one","two","three","four","five","six","seven","eight","nine","ten"};
 		String ten[]= {"","","twenty","thirty","forty","fifty","sixty","seventy","eighty","ninety"};
-		String teens[]= {"eleven","tweleve","thirteen","fourteen","fifteen","sixteen","seventeen","eighteen","nineteen"};
-		int n=980;
+		String teens[]= {"","eleven","tweleve","thirteen","fourteen","fifteen","sixteen","seventeen","eighteen","nineteen"};
+		Random random=new Random();
+		int min=0,max=999;
+		int n=random.nextInt(max-min+1)+min;
 		int hundred=n/100;
 		int tens=(n%100)/10;
 		int units=n%10;
 		String word="";
 		if(hundred>0)
 		{
-			word=word+digits[hundred]+" "+"hundred"+" ";
+			word=word+digits[hundred]+" "+"hundred";
 			if(tens>0 || units>0)
 			{
 				word+="and"+" ";
 			}
 		}
-		if(tens==1)
+		if(tens==1 && units==0)
+		{
+			word+="ten"+" ";
+			
+		}
+		else if(tens==1)
 		{
 			int teen=n%10;
 			word+=teens[teen-1]+" ";
@@ -28,6 +44,7 @@ String digits[]= {"","one","two","three","four","five","six","seven","eight","ni
 			word+=digits[units]+" ";
 		}
 		System.out.println(word);
+		
 	}
 
 }
