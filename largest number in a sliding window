@@ -1,0 +1,19 @@
+public static void main(String[] args) {
+		int array[]= {3,2,7,6,5,1,2,3,4};
+		int k=4;
+		int size=array.length-k;
+		for(int index=0;index<=size;index++)
+		{
+			int max=0;
+			int start=index,end=index+k-1;
+			while(start<=end)
+			{
+				if(array[start]>max)
+				{
+					max=array[start];
+				}
+				start++;
+			}
+			System.out.print(max+" ");
+		}
+		
