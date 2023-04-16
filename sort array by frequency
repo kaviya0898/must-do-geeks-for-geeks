@@ -1,0 +1,44 @@
+public static void main(String[] args) {
+		int[] arr = { 9,4,4,4,3,2,4,3,1 };
+		int answer[]=new int[arr.length];
+		int len=arr.length;
+		for(int index=0;index<len;index++)
+		{
+			int count=1;
+			
+			for(int nextIndex=index+1;nextIndex<len;nextIndex++)
+			{
+				if(arr[index]==arr[nextIndex])
+				{
+					count++;
+					answer[nextIndex]=-1;
+				}
+			}
+			if(answer[index]!=-1)
+			{
+				answer[index]=count;
+			}
+		}
+		for(int index=0;index<len;index++)
+		{
+			for(int nextIndex=0;nextIndex<len;nextIndex++)
+			{
+				if(answer[index]<answer[nextIndex])
+				{
+					int temp1=answer[index];
+					int temp=arr[index];
+					answer[index]=answer[nextIndex];
+					arr[index]=arr[nextIndex];
+					answer[nextIndex]=temp1;
+					arr[nextIndex]=temp;
+				}
+			}
+	}
+		for(int index=0;index<len;index++)
+		{
+			for(int j=0;j<answer[index];j++)
+			System.out.print(answer[index]+" ");
+		}
+
+		}
+}
