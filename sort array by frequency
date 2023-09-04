@@ -1,44 +1,52 @@
 public static void main(String[] args) {
-		int[] arr = { 9,4,4,4,3,2,4,3,1 };
-		int answer[]=new int[arr.length];
-		int len=arr.length;
-		for(int index=0;index<len;index++)
+		int array[]= {2,2,3,4,5,46,12,2,3,3,3,12,};
+		int frequency[]=new int[array.length];
+		
+		for(int row=0;row<array.length;row++)
 		{
 			int count=1;
-			
-			for(int nextIndex=index+1;nextIndex<len;nextIndex++)
+			for(int column=row+1;column<array.length;column++)
 			{
-				if(arr[index]==arr[nextIndex])
+				if(array[row]==array[column])
 				{
 					count++;
-					answer[nextIndex]=-1;
+					frequency[column]=Integer.MIN_VALUE;
 				}
 			}
-			if(answer[index]!=-1)
+			if(frequency[row]!=Integer.MIN_VALUE)
 			{
-				answer[index]=count;
+				frequency[row]=count;
 			}
-		}
-		for(int index=0;index<len;index++)
-		{
-			for(int nextIndex=0;nextIndex<len;nextIndex++)
+			else
 			{
-				if(answer[index]<answer[nextIndex])
+				frequency[row]=0;
+			}
+			
+		}
+		//System.out.println(Arrays.toString(frequency));
+		for(int row=0;row<array.length;row++)
+		{
+			
+			for(int column=0;column<array.length;column++)
+			{
+				if(frequency[row]>frequency[column])
 				{
-					int temp1=answer[index];
-					int temp=arr[index];
-					answer[index]=answer[nextIndex];
-					arr[index]=arr[nextIndex];
-					answer[nextIndex]=temp1;
-					arr[nextIndex]=temp;
+					int temp=frequency[row];
+					int temp2=array[row];
+					frequency[row]=frequency[column];
+					array[row]=array[column];
+					frequency[column]=temp;
+					array[column]=temp2;
 				}
 			}
-	}
-		for(int index=0;index<len;index++)
+		}
+		for(int i=0;i<frequency.length;i++)
 		{
-			for(int j=0;j<answer[index];j++)
-			System.out.print(answer[index]+" ");
+			while(frequency[i]!=0)
+			{
+				System.out.print(array[i]+" ");
+				frequency[i]--;
+			}
 		}
-
-		}
+}
 }
